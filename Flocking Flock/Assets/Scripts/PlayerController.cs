@@ -10,49 +10,50 @@ public class PlayerController : MonoBehaviour
     private float maxLeft = -10.0f;
     private float energy = 150.0f; // of something !!!
     private float wingsPower = 30.0f;
+    private float maxDistance = 10.0f;
+    private float maxSqrDistance;
 
-    public Rigidbody rb;
+    public Transform observer;
+
+    private Rigidbody rb;
 
     void Start()
     {
         rb = GetComponent<Rigidbody>();
+        maxSqrDistance = maxDistance * maxDistance;
     }
 
     void FixedUpdate()
     {
+        transform.LookAt(observer); // Making bird fly around the observer // FIXME: Make bird look where it flies
+
         float potentialHeight = energy / (Physics.gravity.magnitude * rb.mass);
         float topHeight = Mathf.Min(maxHeight, potentialHeight);
         float potentialEnergy = rb.mass * transform.position.y * Physics.gravity.magnitude;
         float kineticEnergy = energy - potentialEnergy;
         float speed = Mathf.Sqrt(2 * kineticEnergy / rb.mass);
+        Vector3 distance = transform.position - observer.position;
 
         float horizontalInput = Input.GetAxis("Horizontal");
         float verticalInput = Input.GetAxis("Vertical");
-        Debug.Log("potentialHeight: " + potentialHeight + " horizontalInput: " + horizontalInput + " verticalInput: " + verticalInput);
+        Debug.Log("potentialHeight: " + potentialHeight + " horizontalInput: " + horizontalInput + " verticalInput: " + verticalInput + " distance: " + distance.magnitude);
 
-        rb.AddForce(transform.up * verticalInput * wingsPower + transform.right * horizontalInput * wingsPower, ForceMode.Acceleration);
+        rb.AddForce(transform.up * verticalInput * wingsPower + (-transform.right) * horizontalInput * wingsPower, ForceMode.Acceleration);
 
-        //transform.Translate(Vector3.right * Time.deltaTime * speed * horizontalInput);
-        //transform.Translate(Vector3.up * Time.deltaTime * speed * verticalInput);
-
-        
+        keepMaxDistance(distance);
+        keepHeight(potentialHeight, topHeight);
     }
 
-    // Update is called once per frame
-    void Update()
+    void keepMaxDistance(Vector3 distance)
     {
-        float potentialHeight = energy / (Physics.gravity.magnitude * rb.mass);
-        float topHeight = Mathf.Min(maxHeight, potentialHeight);
-
-        if (transform.position.x > maxRight)
+        if (distance.sqrMagnitude > maxSqrDistance)
         {
-            transform.position = new Vector3(maxRight, transform.position.y, transform.position.z);
+            transform.position = observer.position + maxDistance * distance.normalized;
         }
-        if (transform.position.x < maxLeft)
-        {
-            transform.position = new Vector3(maxLeft, transform.position.y, transform.position.z);
-        }
+    }
 
+    void keepHeight(float potentialHeight, float topHeight)
+    {
         if (transform.position.y > topHeight)
         {
             transform.position = new Vector3(transform.position.x, topHeight, transform.position.z);
