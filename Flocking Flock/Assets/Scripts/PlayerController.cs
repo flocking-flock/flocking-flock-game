@@ -6,11 +6,9 @@ public class PlayerController : MonoBehaviour
 {
     private float maxHeight = 15.0f;
     private float minHeight = 0.0f;
-    private float maxRight = 10.0f;
-    private float maxLeft = -10.0f;
     private float energy = 150.0f; // of something !!!
     private float wingsPower = 30.0f;
-    private float maxDistance = 10.0f;
+    private float maxDistance = 20.0f;
     private float maxSqrDistance;
 
     public Transform observer;
@@ -41,7 +39,7 @@ public class PlayerController : MonoBehaviour
         rb.AddForce(transform.up * verticalInput * wingsPower + (-transform.right) * horizontalInput * wingsPower, ForceMode.Acceleration);
 
         keepMaxDistance(distance);
-        keepHeight(potentialHeight, topHeight);
+        keepHeight(topHeight);
     }
 
     void keepMaxDistance(Vector3 distance)
@@ -52,7 +50,7 @@ public class PlayerController : MonoBehaviour
         }
     }
 
-    void keepHeight(float potentialHeight, float topHeight)
+    void keepHeight(float topHeight)
     {
         if (transform.position.y > topHeight)
         {
