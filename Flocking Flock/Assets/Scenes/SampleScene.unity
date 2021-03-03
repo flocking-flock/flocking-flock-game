@@ -141,6 +141,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   observer: {fileID: 963194228}
+  birdsModels:
+  - {fileID: 2186366892574367051, guid: 3a001cfd81c2d41118784a4f9a79edba, type: 3}
+  - {fileID: 5178365385040391627, guid: c99c7d17e181e489fa1a37eb43360351, type: 3}
+  - {fileID: 1176967739992946336, guid: 90306efdfacff4941a6c8f9b7ffc080e, type: 3}
 --- !u!54 &12588427
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -214,6 +218,10 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5178365385040391627, guid: c99c7d17e181e489fa1a37eb43360351, type: 3}
+      propertyPath: precision
+      value: 20
+      objectReference: {fileID: 0}
+    - target: {fileID: 5178365385040391627, guid: c99c7d17e181e489fa1a37eb43360351, type: 3}
       propertyPath: targetBird
       value: 
       objectReference: {fileID: 12588428}
@@ -235,6 +243,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1848964609}
     m_Modifications:
+    - target: {fileID: 1176967739992946336, guid: 90306efdfacff4941a6c8f9b7ffc080e, type: 3}
+      propertyPath: precision
+      value: 20
+      objectReference: {fileID: 0}
     - target: {fileID: 1176967739992946336, guid: 90306efdfacff4941a6c8f9b7ffc080e, type: 3}
       propertyPath: targetBird
       value: 
@@ -876,6 +888,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1848964609}
     m_Modifications:
+    - target: {fileID: 2186366892574367051, guid: 3a001cfd81c2d41118784a4f9a79edba, type: 3}
+      propertyPath: precision
+      value: 20
+      objectReference: {fileID: 0}
     - target: {fileID: 2186366892574367051, guid: 3a001cfd81c2d41118784a4f9a79edba, type: 3}
       propertyPath: targetBird
       value: 
