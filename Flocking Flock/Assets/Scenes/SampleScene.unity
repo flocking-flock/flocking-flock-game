@@ -128,20 +128,6 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 8546808393562144884, guid: 16b25df9a93124407b8d54b863ba4df5, type: 3}
   m_PrefabInstance: {fileID: 3792661740221668394}
   m_PrefabAsset: {fileID: 0}
---- !u!136 &12588426
-CapsuleCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 12588425}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_Enabled: 1
-  m_Radius: 0.5
-  m_Height: 1
-  m_Direction: 1
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!54 &12588427 stripped
 Rigidbody:
   m_CorrespondingSourceObject: {fileID: 12588427, guid: 16b25df9a93124407b8d54b863ba4df5, type: 3}
@@ -257,6 +243,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1689616456}
     m_Modifications:
+    - target: {fileID: 709233814649484973, guid: 5ab06135cbf19446eb26b68d0d6b9d69, type: 3}
+      propertyPath: playerBird
+      value: 
+      objectReference: {fileID: 12588425}
     - target: {fileID: 7921807975716309098, guid: 5ab06135cbf19446eb26b68d0d6b9d69, type: 3}
       propertyPath: m_RootOrder
       value: 0
@@ -314,6 +304,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1689616456}
     m_Modifications:
+    - target: {fileID: 3186389679407334482, guid: faad1cdbd9ff3474aac15b8936f0d285, type: 3}
+      propertyPath: playerBird
+      value: 
+      objectReference: {fileID: 12588425}
     - target: {fileID: 7921807975716309098, guid: faad1cdbd9ff3474aac15b8936f0d285, type: 3}
       propertyPath: m_RootOrder
       value: 2
@@ -620,6 +614,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1689616456}
     m_Modifications:
+    - target: {fileID: 6312041834511503069, guid: 72aa2cc5805314eaf91e518f1d272bfa, type: 3}
+      propertyPath: playerBird
+      value: 
+      objectReference: {fileID: 12588425}
     - target: {fileID: 7921807975716309098, guid: 72aa2cc5805314eaf91e518f1d272bfa, type: 3}
       propertyPath: m_RootOrder
       value: 1
@@ -776,6 +774,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1561315188, guid: 2544e32897cc045858983e1d36f8f6d1, type: 3}
+      propertyPath: playerBird
+      value: 
+      objectReference: {fileID: 12588425}
     - target: {fileID: 6295592223978456380, guid: 2544e32897cc045858983e1d36f8f6d1, type: 3}
       propertyPath: m_RootOrder
       value: 0
