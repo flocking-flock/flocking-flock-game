@@ -141,10 +141,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   observer: {fileID: 963194228}
-  birdsModels:
-  - {fileID: 2186366892574367051, guid: 3a001cfd81c2d41118784a4f9a79edba, type: 3}
-  - {fileID: 5178365385040391627, guid: c99c7d17e181e489fa1a37eb43360351, type: 3}
-  - {fileID: 1176967739992946336, guid: 90306efdfacff4941a6c8f9b7ffc080e, type: 3}
 --- !u!54 &12588427
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -187,7 +183,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2418689534789294164, guid: c99c7d17e181e489fa1a37eb43360351, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 0.8546128
+      value: -7.77
       objectReference: {fileID: 0}
     - target: {fileID: 2418689534789294164, guid: c99c7d17e181e489fa1a37eb43360351, type: 3}
       propertyPath: m_LocalRotation.w
@@ -218,10 +214,6 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5178365385040391627, guid: c99c7d17e181e489fa1a37eb43360351, type: 3}
-      propertyPath: precision
-      value: 20
-      objectReference: {fileID: 0}
-    - target: {fileID: 5178365385040391627, guid: c99c7d17e181e489fa1a37eb43360351, type: 3}
       propertyPath: targetBird
       value: 
       objectReference: {fileID: 12588428}
@@ -244,16 +236,12 @@ PrefabInstance:
     m_TransformParent: {fileID: 1848964609}
     m_Modifications:
     - target: {fileID: 1176967739992946336, guid: 90306efdfacff4941a6c8f9b7ffc080e, type: 3}
-      propertyPath: precision
-      value: 20
-      objectReference: {fileID: 0}
-    - target: {fileID: 1176967739992946336, guid: 90306efdfacff4941a6c8f9b7ffc080e, type: 3}
       propertyPath: targetBird
       value: 
       objectReference: {fileID: 12588428}
     - target: {fileID: 2418689534789294164, guid: 90306efdfacff4941a6c8f9b7ffc080e, type: 3}
       propertyPath: m_RootOrder
-      value: 0
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 2418689534789294164, guid: 90306efdfacff4941a6c8f9b7ffc080e, type: 3}
       propertyPath: m_LocalPosition.x
@@ -265,7 +253,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2418689534789294164, guid: 90306efdfacff4941a6c8f9b7ffc080e, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 5.554613
+      value: -10.77
       objectReference: {fileID: 0}
     - target: {fileID: 2418689534789294164, guid: 90306efdfacff4941a6c8f9b7ffc080e, type: 3}
       propertyPath: m_LocalRotation.w
@@ -525,6 +513,7 @@ GameObject:
   - component: {fileID: 963194227}
   - component: {fileID: 963194226}
   - component: {fileID: 963194229}
+  - component: {fileID: 963194230}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -610,7 +599,24 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerBird: {fileID: 12588428}
-  smoothSpeed: 10
+  smoothSpeed: 0.1
+--- !u!114 &963194230
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 963194225}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6bd723c2df0c04598a37a96b72687db0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  birdPrefabs:
+  - {fileID: 2186366892574367051, guid: 3a001cfd81c2d41118784a4f9a79edba, type: 3}
+  - {fileID: 5178365385040391627, guid: c99c7d17e181e489fa1a37eb43360351, type: 3}
+  - {fileID: 1176967739992946336, guid: 90306efdfacff4941a6c8f9b7ffc080e, type: 3}
+  target: {fileID: 12588428}
 --- !u!4 &1171837514 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 2418689534789294164, guid: c99c7d17e181e489fa1a37eb43360351, type: 3}
@@ -870,9 +876,9 @@ Transform:
   m_LocalPosition: {x: -7.6781344, y: 34.178265, z: 4.2553873}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
-  - {fileID: 367993955}
-  - {fileID: 1171837514}
   - {fileID: 1772803717}
+  - {fileID: 1171837514}
+  - {fileID: 367993955}
   m_Father: {fileID: 0}
   m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -890,7 +896,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 2186366892574367051, guid: 3a001cfd81c2d41118784a4f9a79edba, type: 3}
       propertyPath: precision
-      value: 20
+      value: 40
       objectReference: {fileID: 0}
     - target: {fileID: 2186366892574367051, guid: 3a001cfd81c2d41118784a4f9a79edba, type: 3}
       propertyPath: targetBird
@@ -898,11 +904,11 @@ PrefabInstance:
       objectReference: {fileID: 12588428}
     - target: {fileID: 2418689534789294164, guid: 3a001cfd81c2d41118784a4f9a79edba, type: 3}
       propertyPath: m_RootOrder
-      value: 2
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2418689534789294164, guid: 3a001cfd81c2d41118784a4f9a79edba, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 4.669143
+      value: 11.05
       objectReference: {fileID: 0}
     - target: {fileID: 2418689534789294164, guid: 3a001cfd81c2d41118784a4f9a79edba, type: 3}
       propertyPath: m_LocalPosition.y
@@ -910,7 +916,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2418689534789294164, guid: 3a001cfd81c2d41118784a4f9a79edba, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 8.1831045
+      value: -8.61
       objectReference: {fileID: 0}
     - target: {fileID: 2418689534789294164, guid: 3a001cfd81c2d41118784a4f9a79edba, type: 3}
       propertyPath: m_LocalRotation.w

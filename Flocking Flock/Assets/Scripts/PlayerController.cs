@@ -13,8 +13,6 @@ public class PlayerController : MonoBehaviour
 
     public Transform observer;
 
-    public FlockingBirdController[] birdsModels;
-
     private Rigidbody rb;
 
     void Start()
@@ -61,21 +59,6 @@ public class PlayerController : MonoBehaviour
         if (transform.position.y < minHeight)
         {
             transform.position = new Vector3(transform.position.x, minHeight, transform.position.z);
-        }
-    }
-
-    void createBird()
-    {
-        int indx = Random.Range(0, birdsModels.Length);
-        FlockingBirdController o = Instantiate(birdsModels[indx], transform.position, transform.rotation);
-        o.targetBird = this.transform;
-    }
-
-    void Update()
-    {
-        if (Input.GetKeyDown(KeyCode.Space))
-        {
-            createBird();
         }
     }
 }

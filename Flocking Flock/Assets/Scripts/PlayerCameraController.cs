@@ -5,7 +5,7 @@ using UnityEngine;
 public class PlayerCameraController : MonoBehaviour
 {
     public Transform playerBird;
-    public float smoothSpeed = 3.0f;
+    public float smoothSpeed = 0.1f;
 
     void FixedUpdate()
     {
@@ -13,6 +13,6 @@ public class PlayerCameraController : MonoBehaviour
         Debug.DrawLine(transform.position, playerBird.transform.position, Color.magenta);
 
         Quaternion toRotation = Quaternion.LookRotation(direction);
-        transform.rotation = Quaternion.Lerp(transform.rotation, toRotation, smoothSpeed * Time.deltaTime);
+        transform.rotation = Quaternion.Lerp(transform.rotation, toRotation, smoothSpeed);
     }
 }

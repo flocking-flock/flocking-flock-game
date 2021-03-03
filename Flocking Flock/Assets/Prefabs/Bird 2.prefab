@@ -142,6 +142,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   targetBird: {fileID: 0}
+  wingsPowerMin: 25
+  wingsPowerMax: 35
+  precision: 20
 --- !u!54 &1171837515
 Rigidbody:
   m_ObjectHideFlags: 0
