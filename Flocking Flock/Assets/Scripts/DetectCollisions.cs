@@ -4,9 +4,16 @@ using UnityEngine;
 
 public class DetectCollisions : MonoBehaviour
 {
+    public GameObject playerBird;
+
     private void OnTriggerEnter(Collider other)
     {
-        //Destroy(gameObject);
-        Destroy(other.gameObject);
+        //Destroy(gameObject); // TODO: Destroy the obstacle when extra hit or modify/move it
+        if (other.gameObject == playerBird)
+        {
+            Debug.LogWarning("GAME OVER!");
+        } else {
+            Destroy(other.gameObject);
+        }
     }
 }

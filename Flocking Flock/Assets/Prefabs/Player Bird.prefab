@@ -107,6 +107,7 @@ GameObject:
   - component: {fileID: 638600422216338637}
   - component: {fileID: 12588427}
   - component: {fileID: 12588426}
+  - component: {fileID: 7843335656012726435}
   m_Layer: 0
   m_Name: Player Bird
   m_TagString: Untagged
@@ -158,3 +159,17 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   observer: {fileID: 0}
+--- !u!136 &7843335656012726435
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8546808393562144884}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  m_Radius: 0.5
+  m_Height: 1
+  m_Direction: 1
+  m_Center: {x: 0, y: 0, z: 0}
