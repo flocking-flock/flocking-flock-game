@@ -214,9 +214,17 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5178365385040391627, guid: c99c7d17e181e489fa1a37eb43360351, type: 3}
+      propertyPath: closeRange
+      value: 0.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 5178365385040391627, guid: c99c7d17e181e489fa1a37eb43360351, type: 3}
       propertyPath: targetBird
       value: 
       objectReference: {fileID: 12588428}
+    - target: {fileID: 5178365385040391627, guid: c99c7d17e181e489fa1a37eb43360351, type: 3}
+      propertyPath: targetBirdRigidBody
+      value: 
+      objectReference: {fileID: 12588427}
     - target: {fileID: 8262913038520440797, guid: c99c7d17e181e489fa1a37eb43360351, type: 3}
       propertyPath: m_Name
       value: Bird 2
@@ -236,9 +244,17 @@ PrefabInstance:
     m_TransformParent: {fileID: 1848964609}
     m_Modifications:
     - target: {fileID: 1176967739992946336, guid: 90306efdfacff4941a6c8f9b7ffc080e, type: 3}
+      propertyPath: closeRange
+      value: 0.3
+      objectReference: {fileID: 0}
+    - target: {fileID: 1176967739992946336, guid: 90306efdfacff4941a6c8f9b7ffc080e, type: 3}
       propertyPath: targetBird
       value: 
       objectReference: {fileID: 12588428}
+    - target: {fileID: 1176967739992946336, guid: 90306efdfacff4941a6c8f9b7ffc080e, type: 3}
+      propertyPath: targetBirdRigidBody
+      value: 
+      objectReference: {fileID: 12588427}
     - target: {fileID: 2418689534789294164, guid: 90306efdfacff4941a6c8f9b7ffc080e, type: 3}
       propertyPath: m_RootOrder
       value: 2
@@ -617,6 +633,7 @@ MonoBehaviour:
   - {fileID: 5178365385040391627, guid: c99c7d17e181e489fa1a37eb43360351, type: 3}
   - {fileID: 1176967739992946336, guid: 90306efdfacff4941a6c8f9b7ffc080e, type: 3}
   target: {fileID: 12588428}
+  targetRigidBody: {fileID: 12588427}
 --- !u!4 &1171837514 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 2418689534789294164, guid: c99c7d17e181e489fa1a37eb43360351, type: 3}
@@ -895,13 +912,17 @@ PrefabInstance:
     m_TransformParent: {fileID: 1848964609}
     m_Modifications:
     - target: {fileID: 2186366892574367051, guid: 3a001cfd81c2d41118784a4f9a79edba, type: 3}
-      propertyPath: precision
-      value: 40
+      propertyPath: closeRange
+      value: 0.1
       objectReference: {fileID: 0}
     - target: {fileID: 2186366892574367051, guid: 3a001cfd81c2d41118784a4f9a79edba, type: 3}
       propertyPath: targetBird
       value: 
       objectReference: {fileID: 12588428}
+    - target: {fileID: 2186366892574367051, guid: 3a001cfd81c2d41118784a4f9a79edba, type: 3}
+      propertyPath: targetBirdRigidBody
+      value: 
+      objectReference: {fileID: 12588427}
     - target: {fileID: 2418689534789294164, guid: 3a001cfd81c2d41118784a4f9a79edba, type: 3}
       propertyPath: m_RootOrder
       value: 0

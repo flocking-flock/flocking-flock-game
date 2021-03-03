@@ -10,6 +10,7 @@ public class SpawnManager : MonoBehaviour
 
     public FlockingBirdController[] birdPrefabs;
     public Transform target;
+    public Rigidbody targetRigidBody;
 
     void Start()
     {
@@ -22,5 +23,6 @@ public class SpawnManager : MonoBehaviour
         Vector3 spawnPosition = transform.position + spawnDistance * transform.forward;
         FlockingBirdController o = Instantiate(birdPrefabs[birdIndex], spawnPosition, birdPrefabs[birdIndex].transform.rotation);
         o.targetBird = target;
+        o.targetBirdRigidBody = targetRigidBody;
     }
 }

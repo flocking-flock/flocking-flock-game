@@ -34,7 +34,7 @@ public class PlayerController : MonoBehaviour
 
         float horizontalInput = Input.GetAxis("Horizontal");
         float verticalInput = Input.GetAxis("Vertical");
-        Debug.Log("potentialHeight: " + potentialHeight + " horizontalInput: " + horizontalInput + " verticalInput: " + verticalInput + " distance: " + distance.magnitude);
+        Debug.Log("velocity: " + rb.velocity.magnitude + " potentialHeight: " + potentialHeight + " horizontalInput: " + horizontalInput + " verticalInput: " + verticalInput + " distance: " + distance.magnitude);
 
         rb.AddForce(transform.up * verticalInput * wingsPower + (-transform.right) * horizontalInput * wingsPower, ForceMode.Acceleration);
 
