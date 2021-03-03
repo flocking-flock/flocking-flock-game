@@ -7,6 +7,8 @@ public class SpawnManager : MonoBehaviour
     private float startDelay = 2.0f;
     private float spawnInterval = 1.5f;
     private float spawnDistance = -2.0f;
+    private float targetVelocityThreshold = 2.0f;
+    private float sqrTargetVelocityThreshold;
 
     public FlockingBirdController[] birdPrefabs;
     public Transform target;
@@ -14,15 +16,20 @@ public class SpawnManager : MonoBehaviour
 
     void Start()
     {
+        sqrTargetVelocityThreshold = targetVelocityThreshold * targetVelocityThreshold;
         InvokeRepeating("SpawnRandomBird", startDelay, spawnInterval);
     }
 
     void SpawnRandomBird()
     {
-        int birdIndex = Random.Range(0, birdPrefabs.Length);
-        Vector3 spawnPosition = transform.position + spawnDistance * transform.forward;
-        FlockingBirdController o = Instantiate(birdPrefabs[birdIndex], spawnPosition, birdPrefabs[birdIndex].transform.rotation);
-        o.targetBird = target;
-        o.targetBirdRigidBody = targetRigidBody;
+        // New birds fly in when target bird flies to the left or to the right of the screen
+        if (targetRigidBody.velocity.sqrMagnitude > sqrTargetVelocityThreshold)
+        {
+            int birdIndex = Random.Range(0, birdPrefabs.Length);
+            Vector3 spawnPosition = transform.position + spawnDistance * transform.forward;
+            FlockingBirdController o = Instantiate(birdPrefabs[birdIndex], spawnPosition, birdPrefabs[birdIndex].transform.rotation);
+            o.targetBird = target;
+            o.targetBirdRigidBody = targetRigidBody;
+        }
     }
 }
