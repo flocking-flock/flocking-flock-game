@@ -10,6 +10,9 @@ public class PlayerController : MonoBehaviour
     private float wingsPower = 30.0f;
     private float maxDistance = 20.0f;
     private float maxSqrDistance;
+    float potentialHeight;
+    float topHeight;
+    Vector3 distance;
 
     public Transform observer;
 
@@ -23,41 +26,37 @@ public class PlayerController : MonoBehaviour
 
     void FixedUpdate()
     {
-        transform.LookAt(observer); // Making bird fly around the observer // FIXME: Make bird look where it flies
+        potentialHeight = energy / (Physics.gravity.magnitude * rb.mass);
+        topHeight = Mathf.Min(maxHeight, potentialHeight);
+        distance = transform.position - observer.position;
 
-        float potentialHeight = energy / (Physics.gravity.magnitude * rb.mass);
-        float topHeight = Mathf.Min(maxHeight, potentialHeight);
-        float potentialEnergy = rb.mass * transform.position.y * Physics.gravity.magnitude;
-        float kineticEnergy = energy - potentialEnergy;
-        float speed = Mathf.Sqrt(2 * kineticEnergy / rb.mass);
-        Vector3 distance = transform.position - observer.position;
+        MovePlayer();
+        ConstraintPlayerPosition();
+    }
+
+    void MovePlayer()
+    {
+        transform.LookAt(observer); // Making bird fly around the observer // FIXME: Make bird look where it flies
 
         float horizontalInput = Input.GetAxis("Horizontal");
         float verticalInput = Input.GetAxis("Vertical");
         float distanceInput = Input.GetAxis("Distance");
 
-        Debug.Log("velocity: " + rb.velocity.magnitude + " potentialHeight: " + potentialHeight + " horizontalInput: " + horizontalInput +
-            " verticalInput: " + verticalInput + " scrollInput: " + distanceInput + " distance: " + distance.magnitude);
+        Debug.Log("velocity: " + rb.velocity.magnitude + " horizontalInput: " + horizontalInput +
+            " verticalInput: " + verticalInput + " distanceInput: " + distanceInput);
 
         rb.AddForce(transform.up * verticalInput * wingsPower +
             (-transform.right) * horizontalInput * wingsPower +
             transform.forward * distanceInput * wingsPower,
             ForceMode.Acceleration);
-
-        keepMaxDistance(distance);
-        keepHeight(topHeight);
     }
 
-    void keepMaxDistance(Vector3 distance)
+    void ConstraintPlayerPosition()
     {
         if (distance.sqrMagnitude > maxSqrDistance)
         {
             transform.position = observer.position + maxDistance * distance.normalized;
         }
-    }
-
-    void keepHeight(float topHeight)
-    {
         if (transform.position.y > topHeight)
         {
             transform.position = new Vector3(transform.position.x, topHeight, transform.position.z);
