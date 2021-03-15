@@ -34,9 +34,15 @@ public class PlayerController : MonoBehaviour
 
         float horizontalInput = Input.GetAxis("Horizontal");
         float verticalInput = Input.GetAxis("Vertical");
-        Debug.Log("velocity: " + rb.velocity.magnitude + " potentialHeight: " + potentialHeight + " horizontalInput: " + horizontalInput + " verticalInput: " + verticalInput + " distance: " + distance.magnitude);
+        float distanceInput = Input.GetAxis("Distance");
 
-        rb.AddForce(transform.up * verticalInput * wingsPower + (-transform.right) * horizontalInput * wingsPower, ForceMode.Acceleration);
+        Debug.Log("velocity: " + rb.velocity.magnitude + " potentialHeight: " + potentialHeight + " horizontalInput: " + horizontalInput +
+            " verticalInput: " + verticalInput + " scrollInput: " + distanceInput + " distance: " + distance.magnitude);
+
+        rb.AddForce(transform.up * verticalInput * wingsPower +
+            (-transform.right) * horizontalInput * wingsPower +
+            transform.forward * distanceInput * wingsPower,
+            ForceMode.Acceleration);
 
         keepMaxDistance(distance);
         keepHeight(topHeight);
