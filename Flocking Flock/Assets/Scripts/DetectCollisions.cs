@@ -4,7 +4,12 @@ using UnityEngine;
 
 public class DetectCollisions : MonoBehaviour
 {
-    public GameObject playerBird;
+    private GameObject playerBird;
+
+    private void Start()
+    {
+        playerBird = GameObject.Find("Player Bird");
+    }
 
     private void OnTriggerEnter(Collider other)
     {
