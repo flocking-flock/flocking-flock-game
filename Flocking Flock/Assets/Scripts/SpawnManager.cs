@@ -9,6 +9,7 @@ public class SpawnManager : MonoBehaviour
     private float spawnDistance = -2.0f;
     private float targetVelocityThreshold = 2.0f;
     private float sqrTargetVelocityThreshold;
+    private int packCount = 2;
 
     public FlockingBirdController[] birdPrefabs;
     public Transform target;
@@ -25,11 +26,14 @@ public class SpawnManager : MonoBehaviour
         // New birds fly in when target bird flies to the left or to the right of the screen
         if (targetRigidBody.velocity.sqrMagnitude > sqrTargetVelocityThreshold)
         {
-            int birdIndex = Random.Range(0, birdPrefabs.Length);
-            Vector3 spawnPosition = transform.position + spawnDistance * transform.forward;
-            FlockingBirdController o = Instantiate(birdPrefabs[birdIndex], spawnPosition, birdPrefabs[birdIndex].transform.rotation);
-            o.targetBird = target;
-            o.targetBirdRigidBody = targetRigidBody;
+            for (int i = 0; i < packCount; i++)
+            {
+                int birdIndex = Random.Range(0, birdPrefabs.Length);
+                Vector3 spawnPosition = transform.position + spawnDistance * transform.forward;
+                FlockingBirdController o = Instantiate(birdPrefabs[birdIndex], spawnPosition, birdPrefabs[birdIndex].transform.rotation);
+                o.targetBird = target;
+                o.targetBirdRigidBody = targetRigidBody;
+            }
         }
     }
 }

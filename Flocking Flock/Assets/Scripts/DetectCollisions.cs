@@ -4,21 +4,20 @@ using UnityEngine;
 
 public class DetectCollisions : MonoBehaviour
 {
-    private GameObject playerBird;
-
     private void Start()
     {
-        playerBird = GameObject.Find("Player Bird");
     }
 
-    private void OnTriggerEnter(Collider other)
+    private void OnCollisionEnter(Collision collision)
     {
         //Destroy(gameObject); // TODO: Destroy the obstacle when extra hit or modify/move it
-        if (other.gameObject == playerBird)
+        if (collision.gameObject.CompareTag("Player"))
         {
             Debug.LogWarning("GAME OVER!");
-        } else {
-            Destroy(other.gameObject);
+        }
+        if (collision.gameObject.CompareTag("Enemy"))
+        {
+            Destroy(collision.gameObject);
         }
     }
 }
