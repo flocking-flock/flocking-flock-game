@@ -10,6 +10,8 @@ public class SpawnManager : MonoBehaviour
     private float targetVelocityThreshold = 2.0f;
     private float sqrTargetVelocityThreshold;
     private int packCount = 2;
+    private double followOthersChance = 0.2;
+
 
     public FlockingBirdController[] birdPrefabs;
     public Transform target;
@@ -30,9 +32,22 @@ public class SpawnManager : MonoBehaviour
             {
                 int birdIndex = Random.Range(0, birdPrefabs.Length);
                 Vector3 spawnPosition = transform.position + spawnDistance * transform.forward;
+
+                Transform effectiveTarget = target;
+                Rigidbody effectiveTargetRigidBody = targetRigidBody;
+
+                if (Random.value < followOthersChance) {
+                    GameObject targetObject = Utils.randomGameObjectWithTag("Enemy");
+                    if (targetObject) {
+                        Debug.LogWarning("New bird will follow other random bird");
+                        effectiveTarget = targetObject.transform;
+                        effectiveTargetRigidBody = targetObject.GetComponent<Rigidbody>();
+                    }
+                }
+
                 FlockingBirdController o = Instantiate(birdPrefabs[birdIndex], spawnPosition, birdPrefabs[birdIndex].transform.rotation);
-                o.targetBird = target;
-                o.targetBirdRigidBody = targetRigidBody;
+                o.targetBird = effectiveTarget;
+                o.targetBirdRigidBody = effectiveTargetRigidBody;
             }
         }
     }

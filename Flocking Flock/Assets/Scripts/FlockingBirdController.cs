@@ -29,6 +29,18 @@ public class FlockingBirdController : MonoBehaviour
 
     void FixedUpdate()
     {
+        if (!targetBird) {
+            Debug.LogWarning("Target disappears");
+            GameObject targetObject = Utils.randomGameObjectWithTag("Enemy");
+            if (targetObject) {
+                Debug.LogWarning("Targeting other bird now");
+            } else {
+                Debug.LogWarning("Targeting player now");
+                targetObject = GameObject.FindGameObjectsWithTag("Player")[0];
+            }
+            targetBird = targetObject.transform;
+            targetBirdRigidBody = targetObject.GetComponent<Rigidbody>();
+        }
         Vector3 direction = targetBird.transform.position - transform.position;
         Debug.DrawLine(transform.position, targetBird.transform.position, Color.magenta);
 
